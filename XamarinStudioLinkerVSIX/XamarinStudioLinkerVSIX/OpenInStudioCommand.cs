@@ -4,11 +4,8 @@ using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using System;
 using System.ComponentModel.Design;
-using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Task = System.Threading.Tasks.Task;
 
 namespace XamarinStudioLinkerVSIX
@@ -122,21 +119,6 @@ namespace XamarinStudioLinkerVSIX
             get
             {
                 return this.package;
-            }
-        }
-
-        private IVsStatusbar _statusBar;
-        private IVsStatusbar StatusBar
-        {
-            get
-            {
-                ThreadHelper.ThrowIfNotOnUIThread();
-                if (_statusBar == null)
-                {
-                    _statusBar = Package.GetGlobalService(typeof(IVsStatusbar)) as IVsStatusbar;
-                }
-
-                return _statusBar;
             }
         }
 

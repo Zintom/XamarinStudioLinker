@@ -1,7 +1,6 @@
 ﻿using System.IO;
 using System.IO.Compression;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 
 namespace XamarinStudioLinkerVSIX
 {
@@ -17,33 +16,6 @@ namespace XamarinStudioLinkerVSIX
             File = 0,
             Directory = 1
         }
-
-        ///// <summary>
-        ///// Creates a temporary Intellij IDEA/Android Studio compatible project with the 'resources' folder linked to the given <paramref name="resourcesDirectory"/> (should be the 'Resources' folder in your
-        ///// Xamarin project).
-        ///// </summary>
-        ///// <param name="projectName">This will be the name given to the temporary project.</param>
-        ///// <param name="resourcesDirectory">This is the source location of the 'Resources' folder which we will be linking to.</param>
-        ///// <param name="logger"></param>
-        ///// <returns>
-        ///// The path to the temporary project, use this string as the project directory when launching Intellij IDEA/Android Studio.
-        ///// <para>Returns <see langword="null"/> if the linking stage failed.</para>
-        ///// </returns>
-        //internal static Task<string> CreateTempAndLinkAsync(string projectName, string resourcesDirectory, ILogger logger)
-        //{
-        //    return Task.Run(() =>
-        //    {
-        //        // Setup the project
-        //        SetupTemplateProject(projectName, out string tempProjectLocation, out string tempResourcesLocation, logger);
-
-        //        // Sym-link the source resources directory to the temporary one.
-        //        bool symLinkSuccess = MirrorDirectory(resourcesDirectory, tempResourcesLocation, logger);
-
-        //        if (!symLinkSuccess) { return null; }
-
-        //        return tempProjectLocation;
-        //    });
-        //}
 
         /// <summary>
         /// Extracts the template project to a temporary location.
