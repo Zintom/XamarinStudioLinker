@@ -176,19 +176,18 @@ namespace XamarinStudioLinkerVSIX
                 ProjectLinker.SetupTemplateProject(projectName, out string tempProjectLocation, out string tempResourcesLocation, this);
 
                 // Do not worry about the fact that we are creating a
-                // link on every invocation, the API silently fails when a link
-                // already exists.
+                // link on every invocation, the API silently fails when a link already exists.
                 ProjectLinker.CreateSymbolicLink(resourcesFolder, tempResourcesLocation, out bool symLinkSuccess, out int symLinkErrorCode);
 
                 // Come back to the UI thread as all subsequent work is minimal impact and relies on the UI thread.
                 await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
 
-                if (!symLinkSuccess && symLinkErrorCode == 740) // Requires elevation error.
+                if (!symLinkSuccess && symLinkErrorCode == 1314) // ERROR_PRIVILEGE_NOT_HELD
                 {
                     VsShellUtilities.ShowMessageBox(
                         this.package,
-                        $"This functionality relies on the CreateSymbolicLinkW Kernel32.dll API, which requires Administrator access.",
-                        "Elevation required.",
+                        $"This functionality relies on the CreateSymbolicLinkW Kernel32.dll API, which requires elevated access. Run Visual Studio as Administrator to fix this.",
+                        "1314 ERROR_PRIVILEGE_NOT_HELD",
                         OLEMSGICON.OLEMSGICON_INFO,
                         OLEMSGBUTTON.OLEMSGBUTTON_OK,
                         OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
