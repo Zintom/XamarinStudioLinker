@@ -1,0 +1,7 @@
+﻿[*.cs]
+
+# IDE0019: Use pattern matching
+dotnet_diagnostic.IDE0019.severity = none
+
+# VSTHRD109: Switch instead of assert in async methods
+dotnet_diagnostic.VSTHRD109.severity = none
