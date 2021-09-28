@@ -70,6 +70,7 @@
     </None>
     <None Include="Key.snk" />
     <None Include="Resources\XamarinStudioLinkerTemplate.zip" />
+    <None Include="Resources\XamarinStudioLinkerTemplateV2.zip" />
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>

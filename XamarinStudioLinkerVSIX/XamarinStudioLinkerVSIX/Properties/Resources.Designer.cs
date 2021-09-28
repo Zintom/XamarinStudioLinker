@@ -63,9 +63,9 @@ namespace XamarinStudioLinkerVSIX.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] XamarinStudioLinkerTemplate {
+        internal static byte[] XamarinStudioLinkerTemplateV2 {
             get {
-                object obj = ResourceManager.GetObject("XamarinStudioLinkerTemplate", resourceCulture);
+                object obj = ResourceManager.GetObject("XamarinStudioLinkerTemplateV2", resourceCulture);
                 return ((byte[])(obj));
             }
         }

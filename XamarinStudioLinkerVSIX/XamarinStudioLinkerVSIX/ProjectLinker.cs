@@ -30,7 +30,7 @@ namespace XamarinStudioLinkerVSIX
             if (!Directory.Exists(tempProjectLocation))
             {
                 // Read the template.
-                using (var zipStream = new MemoryStream(Properties.Resources.XamarinStudioLinkerTemplate))
+                using (var zipStream = new MemoryStream(Properties.Resources.XamarinStudioLinkerTemplateV2))
                 using (var archive = new ZipArchive(zipStream, ZipArchiveMode.Read))
                 {
                     logger.Log("Extracting the project template to the temporary location.");
