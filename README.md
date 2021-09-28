@@ -5,7 +5,7 @@ Opens .xml files in Android Studio or Intellij IDEA.
 
 Creates a temporary **Android Studio/IDEA** project and uses a *symbolic link* to link your **Xamarin.Android** resources folder with that temporary project, conveniently launches Android Studio into the project, any changes there will instantly reflect in your Xamarin.Android project.
 
-**Requires Visual Studio to be running as Administrator** ([CreateSymbolicLinkW](https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-createsymboliclinkw) prerequisite)
+**Requires Visual Studio to be running as Administrator** ([CreateSymbolicLinkW](https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-createsymboliclinkw) prerequisite).
 
 Download from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=Zintom.XamarinStudioLinker).
 
