@@ -94,6 +94,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\android_studio_logo.png" />
     <Content Include="Resources\OpenInStudioCommand.png" />
     <Content Include="Resources\OpenInStudioCommandPackage.ico" />
   </ItemGroup>
