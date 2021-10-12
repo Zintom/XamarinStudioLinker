@@ -167,24 +167,26 @@ namespace XamarinStudioLinkerVSIX
             {
                 ProjectLinker.SetupTemplateProject(projectName, out string tempProjectLocation, out string tempResourcesLocation, this);
 
-                // Do not worry about the fact that we are creating a
-                // link on every invocation, the API silently fails when a link already exists.
-                ProjectLinker.CreateSymbolicLink(resourcesFolder, tempResourcesLocation, out bool symLinkSuccess, out int symLinkErrorCode);
-
-                // Come back to the UI thread as all subsequent work is minimal impact and relies on the UI thread.
-                await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
-
-                if (!symLinkSuccess && symLinkErrorCode == 1314) // ERROR_PRIVILEGE_NOT_HELD
+                // If the temp resource folder does not exist yet, we need to create it.
+                if (!Directory.Exists(tempResourcesLocation))
                 {
-                    VsShellUtilities.ShowMessageBox(
-                        this.package,
-                        $"This functionality relies on the CreateSymbolicLinkW Kernel32.dll API, which requires elevated access. Run Visual Studio as Administrator to fix this.",
-                        "1314 ERROR_PRIVILEGE_NOT_HELD",
-                        OLEMSGICON.OLEMSGICON_INFO,
-                        OLEMSGBUTTON.OLEMSGBUTTON_OK,
-                        OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+                    ProjectLinker.CreateSymbolicLink(resourcesFolder, tempResourcesLocation, out bool symLinkSuccess, out int symLinkErrorCode);
 
-                    return;
+                    // Come back to the UI thread as all subsequent work is minimal impact and relies on the UI thread.
+                    await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+
+                    if (!symLinkSuccess && symLinkErrorCode == 1314) // ERROR_PRIVILEGE_NOT_HELD
+                    {
+                        VsShellUtilities.ShowMessageBox(
+                            this.package,
+                            $"This functionality relies on the CreateSymbolicLinkW Kernel32.dll API, which requires elevated access. Run Visual Studio as Administrator to fix this.",
+                            "1314 ERROR_PRIVILEGE_NOT_HELD",
+                            OLEMSGICON.OLEMSGICON_INFO,
+                            OLEMSGBUTTON.OLEMSGBUTTON_OK,
+                            OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+
+                        return;
+                    }
                 }
 
                 // Launch the IDE using the temporary project.
