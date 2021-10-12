@@ -73,14 +73,6 @@ namespace XamarinStudioLinkerVSIX
                         isVisible = true;
                     }
                 }
-                if (kindGuid == VSConstants.ItemTypeGuid.PhysicalFolder_guid)
-                {
-                    if (selectedProjectItem.Name == "Resources" &&
-                        Directory.GetParent(selectedProjectItem.FileNames[0]).FullName == selectedProjectItem.ContainingProject.FullName)
-                    {
-                        isVisible = true;
-                    }
-                }
             }
 
             menuCommand.Visible = isVisible;
