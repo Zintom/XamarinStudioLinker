@@ -5,7 +5,7 @@ Edit your resource files in the **Android Studio/IDEA** IDE and watch the change
 
 Creates a temporary Android Studio/Intellij IDEA project and uses a *symbolic link* which links your Xamarin.Android `Resources` folder with the temporary project, it will then conveniently launch Android Studio into the project whereby you can edit your resources (layout, colours, vector assets, etc), any changes will instantly reflect in your Xamarin.Android project.
 
-**Requires Visual Studio to be running as Administrator** ([CreateSymbolicLinkW](https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-createsymboliclinkw) prerequisite).
+**Requires Visual Studio to be running as Administrator when you first use the extension for a given project ([CreateSymbolicLinkW](https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-createsymboliclinkw) prerequisite), subsequent use does not require elevation.**
 
 Download from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=Zintom.XamarinStudioLinker).
 
@@ -16,4 +16,3 @@ Rather than implement my own layout editor, the simple and most effective soluti
 
 ## Common Headaches
 * If you create new files in the Android Studio IDE then you will need to make them visible to the Visual Studio project by using `Add > Existing Item` in the solution explorer. I would recommend just creating the files in Visual Studio if you wish to avoid this issue.
-* Some views need you to use AppCompat.Theme to show themselves correctly in the Android Studio layout editor. You can do this by setting the theme directly in the editor. *(at some point in the future I may include a theme file that defaults to AppCompat)*.
