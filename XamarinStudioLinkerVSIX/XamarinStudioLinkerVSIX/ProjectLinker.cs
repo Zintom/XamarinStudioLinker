@@ -22,7 +22,7 @@ namespace XamarinStudioLinkerVSIX
         /// </summary>
         /// <param name="projectName">This will be the name given to the temporary project.</param>
         /// <param name="tempProjectLocation">The on-disk location of the temporary project.</param>
-        /// <param name="tempResourcesLocation">The on-disk location of the temporary project's "res" (Resources) folder.</param>
+        /// <param name="tempResourcesLocation">The on-disk location of the temporary project's "res" (Resources) folder, <b>The folder is not created by this method.</b></param>
         internal static void SetupTemplateProject(string projectName, out string tempProjectLocation, out string tempResourcesLocation, ILogger logger)
         {
             tempProjectLocation = string.Format("{0}XamarinStudioLinkerTemporaryProject({1})", Path.GetTempPath(), projectName);
