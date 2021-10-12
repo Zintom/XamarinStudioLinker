@@ -4,7 +4,7 @@
         <Identity Id="XamarinStudioLinkerVSIX.1712da44-5f7c-48ef-a910-2407ee9fe57c" Version="1.2.2" Language="en-US" Publisher="Zintom" />
         <DisplayName>Xamarin Studio Linker</DisplayName>
         <Description xml:space="preserve">Opens .xml files in Android Studio or Intellij IDEA.</Description>
-        <ReleaseNotes>The template android project now uses @style/AppTheme.</ReleaseNotes>
+        <ReleaseNotes>Bug fixes and improvements.</ReleaseNotes>
     </Metadata>
     <Installation>
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[16.0, 17.0)" />
